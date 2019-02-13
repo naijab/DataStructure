@@ -1,4 +1,6 @@
-package sit;
+package linked_list;
+
+import linked_list.QueueAndStackImpl;
 
 public class Main {
 

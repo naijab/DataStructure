@@ -1,9 +1,7 @@
-package sit;
+package linked_list;
 
 import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
-import sit.base.Queue;
-import sit.base.Stack;
 
 public class QueueAndStackImpl<T> implements Queue<T>, Stack<T> {
 
@@ -52,7 +50,7 @@ public class QueueAndStackImpl<T> implements Queue<T>, Stack<T> {
             oldlast.next = last;
         }
         size++;
-    }
+    } 
 
     @Override
     public T dequeue() throws NoSuchElementException {
@@ -66,7 +64,7 @@ public class QueueAndStackImpl<T> implements Queue<T>, Stack<T> {
             last = null;
         }
         return item;
-    }
+    } 
 
     @Override
     public T top() throws EmptyStackException {

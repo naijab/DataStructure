@@ -1,4 +1,4 @@
-package sit.base;
+package linked_list;
 
 import java.util.EmptyStackException;
 
@@ -8,9 +8,12 @@ public interface Stack<T> {
     
     boolean isEmpty();
     
-    T top() throws EmptyStackException;
     
     void push (T element);
+    
+    T top() throws EmptyStackException;
+    
+    
     
     T pop() throws EmptyStackException;
     
