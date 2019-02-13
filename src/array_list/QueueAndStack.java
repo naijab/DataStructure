@@ -28,9 +28,8 @@ public class QueueAndStack<T> implements Queue<T>, Stack<T> {
 
     @Override
     public T removeQueue() {
-        T removedItem = list.get(0);
         list.remove(0);
-        return removedItem;
+        return list.get(0);
     }
 
     @Override
@@ -45,9 +44,8 @@ public class QueueAndStack<T> implements Queue<T>, Stack<T> {
 
     @Override
     public T removeStack() {
-        T removedItem = list.get(lastPosition());
         list.remove(lastPosition());
-        return removedItem;
+        return list.get(lastPosition());
     }
 
     @Override
