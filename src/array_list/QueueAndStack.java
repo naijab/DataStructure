@@ -18,7 +18,7 @@ public class QueueAndStack<T> implements Queue<T>, Stack<T> {
 
     @Override
     public boolean isEmpty() {
-        return list.get(0) == null;
+        return list.isEmpty();
     }
 
     @Override
