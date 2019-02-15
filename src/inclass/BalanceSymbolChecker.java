@@ -2,6 +2,7 @@ package inclass;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -10,6 +11,7 @@ public class BalanceSymbolChecker {
     public static String checkBalcnme(String fileName) throws FileNotFoundException {
         File f = new File(fileName);
         Scanner sc = new Scanner(f);
+        LinkedList<String> stack = new LinkedList<>();
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
             StringTokenizer stk = new StringTokenizer(line, "{}()<>[]", true);
@@ -18,8 +20,17 @@ public class BalanceSymbolChecker {
                 if (isSymbol(token)) {
                     if (isOpenSymbol(token)) {
                         System.out.println("push(" + token + ")");
+                        stack.push(token);
                     } else {
                         System.out.println("pop() and check");
+                        String top = stack.peek();
+                        if(top == null) {
+                            return "missing open Symbol";
+                        }
+                        if(getValue(top) != getValue(token)) {
+                            return "unbalance symbol";
+                        }
+                        stack.pop();
                     }
                 }
             }
@@ -72,6 +83,6 @@ public class BalanceSymbolChecker {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        checkBalcnme("Datastructures.java");
+        System.out.println(checkBalcnme("Datastructures.java"));
     }
 }
