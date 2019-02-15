@@ -16,7 +16,11 @@ public class BalanceSymbolChecker {
             while (stk.hasMoreTokens()) {
                 String token = stk.nextToken();
                 if (isSymbol(token)) {
-                    System.out.println(token);
+                    if (isOpenSymbol(token)) {
+                        System.out.println("push(" + token + ")");
+                    } else {
+                        System.out.println("pop() and check");
+                    }
                 }
             }
         }
@@ -33,6 +37,17 @@ public class BalanceSymbolChecker {
             case ")":
             case "<":
             case ">":
+                return true;
+        }
+        return false;
+    }
+
+    private static boolean isOpenSymbol(String symbol) {
+        switch (symbol) {
+            case "[":
+            case "{":
+            case "(":
+            case "<":
                 return true;
         }
         return false;
@@ -55,7 +70,7 @@ public class BalanceSymbolChecker {
         }
         return -1;
     }
-    
+
     public static void main(String[] args) throws FileNotFoundException {
         checkBalcnme("Datastructures.java");
     }
